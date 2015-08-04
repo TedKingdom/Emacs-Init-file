@@ -102,8 +102,8 @@
 ; Enable 'column-enforce-mode' globally ('column-enforce-mode' has to be already installed):
 (add-to-list 'load-path "~/.emacs.d/elpa/column-enforce-mode-20140902.949/")
 (require 'column-enforce-mode)
-(global-column-enforce-mode t)
-(setq column-enforce-comments nil)
+(global-column-enforce-mode t) ; Enable globally. By default enforces 80 column rule.
+; (setq column-enforce-comments nil) ; Allow long comments.
 (setq column-number-mode t) ; Enable column number mode.
 (setq ispell-program-name "/usr/local/bin/ispell") ; Give path to Ispell (it has to be already installed).
 (toggle-frame-fullscreen) ; Start fullscreen mode.
