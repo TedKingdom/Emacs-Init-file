@@ -99,10 +99,11 @@
  (setq matlab-indent-function t)
  (setq matlab-shell-command "matlab")
 (add-hook 'matlab-mode-hook 'auto-complete-mode) ; Toggle auto-complete mode when entering matlab mode.
+(add-hook 'matlab-mode-hook 'column-enforce-mode 1) ; Enable 80 column rule in Matlab.
 ; Enable 'column-enforce-mode' globally ('column-enforce-mode' has to be already installed):
 (add-to-list 'load-path "~/.emacs.d/elpa/column-enforce-mode-20140902.949/")
 (require 'column-enforce-mode)
-(global-column-enforce-mode t) ; Enable globally. By default enforces 80 column rule.
+(global-column-enforce-mode 1) ; Enable globally. By default enforces 80 column rule.
 ; (setq column-enforce-comments nil) ; Allow long comments.
 (setq column-number-mode t) ; Enable column number mode.
 (setq ispell-program-name "/usr/local/bin/ispell") ; Give path to Ispell (it has to be already installed).
