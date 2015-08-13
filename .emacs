@@ -111,4 +111,6 @@
 ; If flyspell-mode fails to start, try downloading a new copy from the web,
 ; bit-compile it, find old copies on the system and replace with the new
 ; compiled file. Make sure the name is 'flyspell.elc'!
+(ac-flyspell-workaround) ; Avoid disabling auto-completion when using
+; flyspell-mode.
 (toggle-frame-fullscreen) ; Start fullscreen mode.
