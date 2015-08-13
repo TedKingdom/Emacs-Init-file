@@ -106,6 +106,16 @@
 (global-column-enforce-mode 1) ; Enable globally. By default enforces 80 column rule.
 ; (setq column-enforce-comments nil) ; Allow long comments.
 (setq column-number-mode t) ; Enable column number mode.
+<<<<<<< HEAD
 (setq ispell-program-name "/usr/local/bin/ispell") ; Give path to Ispell (it has to be already installed).
 (add-hook 'LaTeX-mode-hook 'flyspell-mode) ; Enable flyspell-mode for LaTeX files.
+=======
+(add-to-list 'load-path "~/.emacs.d/my_lisp/") ; Add a directory to Emacs load
+; path. Put *.el downloaded from the web there.
+; Declare flyspell-mode function as auto-load:
+(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
+(autoload 'flyspell-delay-command "flyspell" "Delay on command." t) (autoload 'tex-mode-flyspell-verify "flyspell" "" t)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode) ; Start flyspell when editing LaTeX files.
+(setq ispell-program-name "aspell")
+>>>>>>> 6eb8b723f514a52b7af8184d620e4f1975a32c03
 (toggle-frame-fullscreen) ; Start fullscreen mode.
