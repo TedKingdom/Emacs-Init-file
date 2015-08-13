@@ -107,4 +107,5 @@
 ; (setq column-enforce-comments nil) ; Allow long comments.
 (setq column-number-mode t) ; Enable column number mode.
 (setq ispell-program-name "/usr/local/bin/ispell") ; Give path to Ispell (it has to be already installed).
+(add-hook 'LaTeX-mode-hook 'flyspell-mode) ; Enable flyspell-mode for LaTeX files.
 (toggle-frame-fullscreen) ; Start fullscreen mode.
