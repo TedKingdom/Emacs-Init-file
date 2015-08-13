@@ -108,4 +108,7 @@
 (setq column-number-mode t) ; Enable column number mode.
 (setq ispell-program-name "/usr/local/bin/ispell") ; Give path to Ispell (it has to be already installed).
 (add-hook 'LaTeX-mode-hook 'flyspell-mode) ; Enable flyspell-mode for LaTeX files.
+; If flyspell-mode fails to start, try downloading a new copy from the web,
+; bit-compile it, find old copies on the system and replace with the new
+; compiled file. Make sure the name is 'flyspell.elc'!
 (toggle-frame-fullscreen) ; Start fullscreen mode.
