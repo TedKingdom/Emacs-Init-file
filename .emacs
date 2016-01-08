@@ -54,6 +54,7 @@
    )
 (add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
 (global-auto-complete-mode t)
+(setq ac-disable-faces nil) ; Turns on auto-complete inside of quote marks and comments.
 (setq ac-math-unicode-in-math-p t)
 ;; end auto-complete section.
 ;; add path to the gfortran compiler to run from emacs' shell:
