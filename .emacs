@@ -42,8 +42,9 @@
 ;;(add-to-list 'load-path "~/.emacs.d/ac/")
 (package-initialize) ;; instead of adding load path (see previous line)
 (require 'ac-math) ;; this package has to be installed beforehand
+(add-to-list 'load-path "~/.emacs.d")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac//ac-dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
 (add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
 (defun ac-LaTeX-mode-setup () ; add ac-sources to default ac-sources
