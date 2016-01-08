@@ -42,9 +42,9 @@
 ;;(add-to-list 'load-path "~/.emacs.d/ac/")
 (package-initialize) ;; instead of adding load path (see previous line)
 (require 'ac-math) ;; this package has to be installed beforehand
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/ac")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac/ac-dict")
 (ac-config-default)
 (add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
 (defun ac-LaTeX-mode-setup () ; add ac-sources to default ac-sources
@@ -92,6 +92,14 @@
 (setq interpreter-mode-alist
       (cons '("python" . python-mode)
             interpreter-mode-alist))
+(require 'epc)
+(add-to-list 'load-path "~/..emacs.d/elpa/jedi-20151214.705")
+(add-hook 'python-mode-hook 'jedi:setup) ; Setup jedi. Note: it was producing
+                                        ; an error untill I downloaded the
+                                        ; latest jedi.el (https://github.com/tkf/emacs-jedi)
+                                        ; and installed Python server (jediepcserver.py).
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
 ;; Open *.m files with Matlab mode (matlab-mode package has to be already installed):
 (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
  (add-to-list
