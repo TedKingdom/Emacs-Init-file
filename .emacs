@@ -3,11 +3,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-electric-sub-and-superscript 1)
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
  '(blink-cursor-mode nil)
  '(custom-enabled-themes (quote (deeper-blue)))
-; '(default-frame-alist (quote ((fullscreen . maximized)))) ; Maximize window.
  '(electric-indent-mode nil)
  '(f90-continuation-indent 7)
  '(f90-do-indent 4)
@@ -18,7 +18,7 @@
  '(global-linum-mode t)
  '(ido-enable-flex-matching nil)
  '(indent-tabs-mode nil)
- '(inhibit-startup-screen nil)
+ '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(menu-bar-mode nil)
  '(package-archives
@@ -29,7 +29,6 @@
  '(send-mail-function (quote mailclient-send-it))
  '(tab-width 4)
  '(tool-bar-mode nil)
- '(TeX-electric-sub-and-superscript 1) ; In AUCTeX, insert braces after typing ^ or _ in math mode.
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
 (setq-default indent-tabs-mode nil)
 (custom-set-faces
