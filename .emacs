@@ -25,6 +25,7 @@
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
+ '(python-shell-interpreter "python")
  '(require (quote auto-complete))
  '(send-mail-function (quote mailclient-send-it))
  '(tab-width 4)
