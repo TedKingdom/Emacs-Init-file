@@ -130,4 +130,5 @@
 ; so I had to give the path. WARNING: with the future TeXLive versions the path will have to change. This
 ; workaround might not be necessary if the "linking" is done properly: for some reason
 ; AUCTeX refused to use kpsewhich located in the system path.
+(setq dired-dwim-target t) ; Make Dired guess the target directory.
 (toggle-frame-fullscreen) ; Start fullscreen mode.
