@@ -58,7 +58,7 @@
 (setq ac-math-unicode-in-math-p t)
 ;; end auto-complete section.
 ;; add path to the gfortran compiler to run from emacs' shell:
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 ;; allow dired to be able to delete or copy a whole dir.
 (setq dired-recursive-copies (quote always)) ; “always” means no asking
 (setq dired-recursive-deletes 'always)
@@ -81,7 +81,7 @@
 	LaTeX-section-toc
 	LaTeX-section-section
 	LaTeX-section-label))
-(setenv "PATH" (concat (getenv "PATH") ":/usr/texbin/")) ;; add path, so Emacs can find 'latex' and 'pdflatex'.
+(setenv "PATH" (concat (getenv "PATH") ":/usr/texbin")) ;; add path, so Emacs can find 'latex' and 'pdflatex'.
 (setq preview-gs-command "/usr/local/bin/gs") ; populate variable to enable preview of pdftex within Emacs.
 ; Activate RefTeX and make it interact with AUCTeX:
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
