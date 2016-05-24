@@ -58,7 +58,7 @@
 (setq ac-math-unicode-in-math-p t)
 ;; end auto-complete section.
 ;; add path to the gfortran compiler to run from emacs' shell:
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 ;; allow dired to be able to delete or copy a whole dir.
 (setq dired-recursive-copies (quote always)) ; “always” means no asking
 (setq dired-recursive-deletes 'always)
