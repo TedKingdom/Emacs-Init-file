@@ -41,6 +41,8 @@
 ;; start auto-complete section:
 ;;(add-to-list 'load-path "~/.emacs.d/ac/")
 (package-initialize) ;; instead of adding load path (see previous line)
+(when (not package-archive-contents)
+    (package-refresh-contents))  ; Update the list of available packages.
 (require 'ac-math) ;; this package has to be installed beforehand
 (add-to-list 'load-path "~/.emacs.d/ac")
 (require 'auto-complete-config)
