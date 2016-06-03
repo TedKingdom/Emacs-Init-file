@@ -83,7 +83,6 @@
 	LaTeX-section-toc
 	LaTeX-section-section
 	LaTeX-section-label))
-(setenv "PATH" (concat (getenv "PATH") ":/usr/texbin")) ;; add path, so Emacs can find 'latex' and 'pdflatex'.
 (setq preview-gs-command "/usr/local/bin/gs") ; populate variable to enable preview of pdftex within Emacs.
 ; Activate RefTeX and make it interact with AUCTeX:
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
