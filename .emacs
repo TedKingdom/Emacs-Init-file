@@ -59,8 +59,8 @@
 (setq ac-disable-faces nil) ; Turns on auto-complete inside of quote marks and comments.
 (setq ac-math-unicode-in-math-p t)
 ;; end auto-complete section.
-;; add path to the gfortran compiler to run from emacs' shell:
-(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+;; add path to the TeX distribution:
+(setenv "PATH" (concat "/Library/TeX/texbin/:" (getenv "PATH")))
 ;; allow dired to be able to delete or copy a whole dir.
 (setq dired-recursive-copies (quote always)) ; “always” means no asking
 (setq dired-recursive-deletes 'always)
