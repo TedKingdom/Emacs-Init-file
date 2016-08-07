@@ -29,8 +29,10 @@
  '(require (quote auto-complete))
  '(send-mail-function (quote mailclient-send-it))
  '(tab-width 4)
- '(tool-bar-mode nil)
- '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
+ '(tool-bar-mode nil))
+; Make buffer names of the files with identical names unique:
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
 (setq-default indent-tabs-mode nil)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
