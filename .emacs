@@ -129,7 +129,7 @@
 (ac-flyspell-workaround) ; Avoid disabling auto-completion when using
 ; flyspell-mode.
 (setq exec-path (append exec-path
-'("/usr/local/texlive/2015/bin/x86_64-darwin/"))) ; AUCTeX could not find kpsewhich,
+'("/usr/local/texlive/2016/bin/x86_64-darwin/"))) ; AUCTeX could not find kpsewhich,
 ; so I had to give the path. WARNING: with the future TeXLive versions the path will have to change. This
 ; workaround might not be necessary if the "linking" is done properly: for some reason
 ; AUCTeX refused to use kpsewhich located in the system path.
