@@ -3,6 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(LaTeX-command-style
+   (quote
+    (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) %S%(PDFout)"))))
  '(TeX-electric-sub-and-superscript 1)
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
@@ -63,6 +66,8 @@
 ;; end auto-complete section.
 ;; add path to the TeX distribution:
 (setenv "PATH" (concat "/Library/TeX/texbin/:" (getenv "PATH")))
+;; add path to the Ghostscript:
+(setenv "PATH" (concat "/opt/local/bin/:" (getenv "PATH")))
 ;; allow dired to be able to delete or copy a whole dir.
 (setq dired-recursive-copies (quote always)) ; “always” means no asking
 (setq dired-recursive-deletes 'always)
@@ -85,11 +90,11 @@
 	LaTeX-section-toc
 	LaTeX-section-section
 	LaTeX-section-label))
-(setq preview-gs-command "/usr/local/bin/gs") ; populate variable to enable preview of pdftex within Emacs.
+;(setq preview-gs-command "/usr/local/bin/gs") ; populate variable to enable preview of pdftex within Emacs.
 ; Activate RefTeX and make it interact with AUCTeX:
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
-(add-hook 'LaTeX-mode-hook 'column-enforce-mode 1) ; Enable 80 character check for LaTeX.
+;(add-hook 'LaTeX-mode-hook 'column-enforce-mode 1) ; Enable 80 character check for LaTeX.
 ;Open .py and .pyw in python-mode
 (setq auto-mode-alist
       (cons '("\\.\\(py\\|pyw\\)$" . python-mode) auto-mode-alist))
