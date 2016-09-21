@@ -27,7 +27,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (dired-quick-sort ssh matlab-mode markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
+    (dired+ dired-quick-sort ssh matlab-mode markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
  '(send-mail-function (quote mailclient-send-it))
@@ -139,8 +139,12 @@
 ; workaround might not be necessary if the "linking" is done properly: for some reason
 ; AUCTeX refused to use kpsewhich located in the system path.
 (setq dired-dwim-target t) ; Make Dired guess the target directory.
-(setq insert-directory-program "/usr/local/bin/gls") ; Point to GNU version of
-                                        ; ls (needed for sorting in dired-mode).
+; Point to GNU version of 'ls' (needed for sorting in dired-mode):
+(setq insert-directory-program "/usr/local/bin/gls") 
+; Do NOT hide details in Dired from the outset (must be set before loading
+; dired+.el):
+(setq diredp-hide-details-initially-flag nil)
+(require 'dired+)
 ; Enable sorting of Dired buffer in various ways (press "S" in dired-mode
 ; to invoke):
 (require 'dired-quick-sort)
