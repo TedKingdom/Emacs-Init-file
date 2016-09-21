@@ -150,5 +150,8 @@
 ; to invoke):
 (require 'dired-quick-sort)
 (dired-quick-sort-setup)
+(setq dired-listing-switches "-alh") ; Add '-h' flag to have human-readable
+                                     ; format (size in units of B, K, M, G as
+                                     ; appropriate).
 (savehist-mode 1) ; Enable this mode to save settings of dired-mode.
 (toggle-frame-fullscreen) ; Start fullscreen mode.
