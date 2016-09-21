@@ -139,7 +139,8 @@
 ; workaround might not be necessary if the "linking" is done properly: for some reason
 ; AUCTeX refused to use kpsewhich located in the system path.
 (setq dired-dwim-target t) ; Make Dired guess the target directory.
-; Point to GNU version of 'ls' (needed for sorting in dired-mode):
+; Point to GNU version of 'ls' (needed for sorting in dired-mode; can be
+; installed using Homebrew by running 'brew install coreutils' in terminal):
 (setq insert-directory-program "/usr/local/bin/gls") 
 ; Do NOT hide details in Dired from the outset (must be set before loading
 ; dired+.el):
