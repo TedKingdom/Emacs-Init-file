@@ -27,12 +27,14 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (dired+ dired-quick-sort ssh matlab-mode markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
+    (markdown-preview-mode dired+ dired-quick-sort ssh matlab-mode markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
  '(send-mail-function (quote mailclient-send-it))
  '(tab-width 4)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(markdown-command "/usr/local/bin/pandoc") ; Path to markdown for the markdown-preview-mode.
+)
 ; Make buffer names of the files with identical names unique:
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
@@ -154,4 +156,6 @@
                                      ; format (size in units of B, K, M, G as
                                      ; appropriate).
 (savehist-mode 1) ; Enable this mode to save settings of dired-mode.
+(custom-set-variables
+)
 (toggle-frame-fullscreen) ; Start fullscreen mode.
