@@ -20,6 +20,7 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(markdown-command "/usr/local/bin/pandoc")
  '(menu-bar-mode nil)
  '(package-archives
    (quote
@@ -27,14 +28,12 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (markdown-preview-mode dired+ dired-quick-sort ssh matlab-mode markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
+    (exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh matlab-mode markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
  '(send-mail-function (quote mailclient-send-it))
  '(tab-width 4)
- '(tool-bar-mode nil)
- '(markdown-command "/usr/local/bin/pandoc") ; Path to markdown for the markdown-preview-mode.
-)
+ '(tool-bar-mode nil))
 ; Make buffer names of the files with identical names unique:
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
@@ -88,10 +87,10 @@
 ; In AUCTeX, get a full featured 'LaTeX-section' command:
 (setq LaTeX-section-hook
       '(LaTeX-section-heading
-	LaTeX-section-title
-	LaTeX-section-toc
-	LaTeX-section-section
-	LaTeX-section-label))
+        LaTeX-section-title
+        LaTeX-section-toc
+        LaTeX-section-section
+        LaTeX-section-label))
 ;(setq preview-gs-command "/usr/local/bin/gs") ; populate variable to enable preview of pdftex within Emacs.
 ; Activate RefTeX and make it interact with AUCTeX:
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
@@ -156,6 +155,4 @@
                                      ; format (size in units of B, K, M, G as
                                      ; appropriate).
 (savehist-mode 1) ; Enable this mode to save settings of dired-mode.
-(custom-set-variables
-)
 (toggle-frame-fullscreen) ; Start fullscreen mode.
