@@ -119,6 +119,11 @@
  (setq matlab-shell-command "matlab")
 (add-hook 'matlab-mode-hook 'auto-complete-mode) ; Toggle auto-complete mode when entering matlab mode.
 (add-hook 'matlab-mode-hook 'column-enforce-mode 1) ; Enable 80 column rule in Matlab.
+; CLI matlab from the shell:
+; /Applications/MATLAB_R2016a.app/bin/matlab -nodesktop
+; elisp setup for matlab-mode:
+(setq matlab-shell-command "/Applications/MATLAB_R2014b.app/bin/matlab")
+(setq matlab-shell-command-switches (list "-nodesktop"))
 ; Enable 'column-enforce-mode' globally ('column-enforce-mode' has to be already installed):
 (add-to-list 'load-path "~/.emacs.d/elpa/column-enforce-mode-20140902.949/")
 (require 'column-enforce-mode)
@@ -155,4 +160,6 @@
                                      ; format (size in units of B, K, M, G as
                                      ; appropriate).
 (savehist-mode 1) ; Enable this mode to save settings of dired-mode.
+;; add path to gnuplot:
+(setenv "PATH" (concat "/usr/local/bin/:" (getenv "PATH")))
 (toggle-frame-fullscreen) ; Start fullscreen mode.
