@@ -127,7 +127,7 @@
 ; CLI matlab from the shell:
 ; /Applications/MATLAB_R2016a.app/bin/matlab -nodesktop
 ; elisp setup for matlab-mode:
-(setq matlab-shell-command "/Applications/MATLAB_R2014b.app/bin/matlab")
+(setq matlab-shell-command "/Applications/MATLAB_R2016b.app/bin/matlab")
 (setq matlab-shell-command-switches (list "-nodesktop"))
 ; Enable 'column-enforce-mode' globally ('column-enforce-mode' has to be already installed):
 (add-to-list 'load-path "~/.emacs.d/elpa/column-enforce-mode-20140902.949/")
