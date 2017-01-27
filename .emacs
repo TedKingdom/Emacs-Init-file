@@ -20,6 +20,7 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(markdown-command "/usr/local/bin/pandoc")
  '(menu-bar-mode nil)
  '(package-archives
    (quote
@@ -32,9 +33,7 @@
  '(require (quote auto-complete))
  '(send-mail-function (quote mailclient-send-it))
  '(tab-width 4)
- '(tool-bar-mode nil)
- '(markdown-command "/usr/local/bin/pandoc") ; Path to markdown for the markdown-preview-mode.
-)
+ '(tool-bar-mode nil))
 ; Make buffer names of the files with identical names unique:
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
@@ -44,10 +43,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#181a26" :foreground "gray80" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "nil" :family "Menlo")))))
+ '(default ((t (:inherit nil :stipple nil :background "#181a26" :foreground "gray80" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "nil" :family "Menlo"))))
+ '(flyspell-duplicate ((t (:foreground "yellow1" :underline "red2" :weight bold))))
+ '(flyspell-incorrect ((t (:foreground "red2" :underline "yellow1" :weight bold)))))
 ;; start auto-complete section:
 ;;(add-to-list 'load-path "~/.emacs.d/ac/")
 (package-initialize) ;; instead of adding load path (see previous line)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 (when (not package-archive-contents)
     (package-refresh-contents))  ; Update the list of available packages.
 (require 'ac-math) ;; this package has to be installed beforehand
@@ -104,7 +107,8 @@
       (cons '("python" . python-mode)
             interpreter-mode-alist))
 (require 'epc)
-(add-to-list 'load-path "~/..emacs.d/elpa/jedi-20151214.705")
+(add-to-list 'load-path "/usr/local/bin/virtualenv")
+(add-to-list 'load-path "~/.emacs.d/elpa/jedi-20160425.2156/")
 (add-hook 'python-mode-hook 'jedi:setup) ; Setup jedi. Note: it was producing
                                         ; an error untill I downloaded the
                                         ; latest jedi.el (https://github.com/tkf/emacs-jedi)
@@ -156,6 +160,4 @@
                                      ; format (size in units of B, K, M, G as
                                      ; appropriate).
 (savehist-mode 1) ; Enable this mode to save settings of dired-mode.
-(custom-set-variables
-)
 (toggle-frame-fullscreen) ; Start fullscreen mode.
