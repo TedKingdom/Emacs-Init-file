@@ -28,7 +28,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh matlab-mode markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
+    (exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
  '(send-mail-function (quote mailclient-send-it))
