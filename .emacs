@@ -8,7 +8,6 @@
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
  '(blink-cursor-mode nil)
  '(custom-enabled-themes (quote (deeper-blue)))
- '(doc-view-continuous nil)
  '(electric-indent-mode nil)
  '(f90-continuation-indent 7)
  '(f90-do-indent 4)
@@ -16,6 +15,7 @@
  '(f90-program-indent 4)
  '(f90-type-indent 4)
  '(fortran-line-number-indent 1)
+ '(global-linum-mode t)
  '(ido-enable-flex-matching nil)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
@@ -28,7 +28,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (auctex-latexmk auctex auto-complete-c-headers exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh matlab-mode markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode ac-math ac-ispell 0blayout)))
+    (auctex-latexmk exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
  '(send-mail-function (quote mailclient-send-it))
@@ -170,16 +170,9 @@
 (require 'auctex-latexmk)
 (auctex-latexmk-setup)
 ; Disable linum-mode in listed modes:
-(define-global-minor-mode my-global-linum-mode global-linum-mode
+(define-globalized-minor-mode my-global-linum-mode linum-mode
   (lambda ()
-    (when (not (memq major-mode
-                     (list 'doc-view-mode 'shell-mode)))
-      (global-linum-mode))))
+    (unless (derived-mode-p 'doc-view-mode 'shell-mode)
+      (linum-mode 1))))
 (my-global-linum-mode 1)
-(add-hook 'doc-view-mode-hook 'my-inhibit-global-linum-mode)
-(defun my-inhibit-global-linum-mode ()
-  "Counter-act `global-linum-mode'."
-  (add-hook 'after-change-major-mode-hook
-            (lambda () (linum-mode 0))
-            :append :local))
 (toggle-frame-fullscreen) ; Start fullscreen mode.
