@@ -8,6 +8,7 @@
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
  '(blink-cursor-mode nil)
  '(custom-enabled-themes (quote (deeper-blue)))
+ '(doc-view-continuous nil)
  '(electric-indent-mode nil)
  '(f90-continuation-indent 7)
  '(f90-do-indent 4)
@@ -15,7 +16,6 @@
  '(f90-program-indent 4)
  '(f90-type-indent 4)
  '(fortran-line-number-indent 1)
- '(global-linum-mode t)
  '(ido-enable-flex-matching nil)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
@@ -28,7 +28,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (auctex auto-complete-c-headers exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh matlab-mode markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode ac-math ac-ispell 0blayout)))
+    (auctex-latexmk auctex auto-complete-c-headers exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh matlab-mode markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode ac-math ac-ispell 0blayout)))
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
  '(send-mail-function (quote mailclient-send-it))
@@ -167,4 +167,13 @@
 (savehist-mode 1) ; Enable this mode to save settings of dired-mode.
 ;; add path to gnuplot:
 (setenv "PATH" (concat "/usr/local/bin/:" (getenv "PATH")))
+(require 'auctex-latexmk)
+(auctex-latexmk-setup)
+; Define a global mode to enable linum-mode for all but specified modes:
+(define-global-minor-mode my-global-linum-mode linum-mode
+  (lambda ()
+    (when (not (memq major-mode
+                     (list 'doc-view-mode)))
+      (linum-mode))))
+(my-global-linum-mode 1)
 (toggle-frame-fullscreen) ; Start fullscreen mode.
