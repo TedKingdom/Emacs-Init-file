@@ -8,6 +8,7 @@
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
  '(blink-cursor-mode nil)
  '(custom-enabled-themes (quote (deeper-blue)))
+ '(doc-view-continuous nil)
  '(electric-indent-mode nil)
  '(f90-continuation-indent 7)
  '(f90-do-indent 4)
@@ -15,7 +16,6 @@
  '(f90-program-indent 4)
  '(f90-type-indent 4)
  '(fortran-line-number-indent 1)
- '(global-linum-mode t)
  '(ido-enable-flex-matching nil)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
@@ -28,7 +28,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
+    (auctex-latexmk auctex auto-complete-c-headers exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh matlab-mode markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode ac-math ac-ispell 0blayout)))
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
  '(send-mail-function (quote mailclient-send-it))
@@ -127,7 +127,7 @@
 ; CLI matlab from the shell:
 ; /Applications/MATLAB_R2016a.app/bin/matlab -nodesktop
 ; elisp setup for matlab-mode:
-(setq matlab-shell-command "/Applications/MATLAB_R2014b.app/bin/matlab")
+(setq matlab-shell-command "/Applications/MATLAB_R2016b.app/bin/matlab")
 (setq matlab-shell-command-switches (list "-nodesktop"))
 ; Enable 'column-enforce-mode' globally ('column-enforce-mode' has to be already installed):
 (add-to-list 'load-path "~/.emacs.d/elpa/column-enforce-mode-20140902.949/")
@@ -167,4 +167,19 @@
 (savehist-mode 1) ; Enable this mode to save settings of dired-mode.
 ;; add path to gnuplot:
 (setenv "PATH" (concat "/usr/local/bin/:" (getenv "PATH")))
+(require 'auctex-latexmk)
+(auctex-latexmk-setup)
+; Disable linum-mode in listed modes:
+(define-global-minor-mode my-global-linum-mode global-linum-mode
+  (lambda ()
+    (when (not (memq major-mode
+                     (list 'doc-view-mode 'shell-mode)))
+      (global-linum-mode))))
+(my-global-linum-mode 1)
+(add-hook 'doc-view-mode-hook 'my-inhibit-global-linum-mode)
+(defun my-inhibit-global-linum-mode ()
+  "Counter-act `global-linum-mode'."
+  (add-hook 'after-change-major-mode-hook
+            (lambda () (linum-mode 0))
+            :append :local))
 (toggle-frame-fullscreen) ; Start fullscreen mode.
