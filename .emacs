@@ -16,7 +16,6 @@
  '(f90-program-indent 4)
  '(f90-type-indent 4)
  '(fortran-line-number-indent 1)
-; '(global-linum-mode 1)
  '(ido-enable-flex-matching nil)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
@@ -170,12 +169,17 @@
 (setenv "PATH" (concat "/usr/local/bin/:" (getenv "PATH")))
 (require 'auctex-latexmk)
 (auctex-latexmk-setup)
-; Disable linum-mode in listed mpodes:
+; Disable linum-mode in listed modes:
 (define-global-minor-mode my-global-linum-mode global-linum-mode
   (lambda ()
     (when (not (memq major-mode
                      (list 'doc-view-mode 'shell-mode)))
       (global-linum-mode))))
-
 (my-global-linum-mode 1)
+(add-hook 'doc-view-mode-hook 'my-inhibit-global-linum-mode)
+(defun my-inhibit-global-linum-mode ()
+  "Counter-act `global-linum-mode'."
+  (add-hook 'after-change-major-mode-hook
+            (lambda () (linum-mode 0))
+            :append :local))
 (toggle-frame-fullscreen) ; Start fullscreen mode.
