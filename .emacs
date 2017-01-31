@@ -172,7 +172,8 @@
 ; Disable linum-mode in listed modes:
 (define-globalized-minor-mode my-global-linum-mode linum-mode
   (lambda ()
-    (unless (derived-mode-p 'doc-view-mode 'shell-mode)
+    (unless (or (minibufferp)
+                (derived-mode-p 'doc-view-mode 'shell-mode))
       (linum-mode 1))))
 (my-global-linum-mode 1)
 (toggle-frame-fullscreen) ; Start fullscreen mode.
