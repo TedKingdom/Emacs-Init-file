@@ -98,8 +98,6 @@
 ;(setq preview-gs-command "/usr/local/bin/gs") ; populate variable to enable preview of pdftex within Emacs.
 ; Activate RefTeX and make it interact with AUCTeX:
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-(setq reftex-plug-into-AUCTeX t)
-(add-hook 'LaTeX-mode-hook 'column-enforce-mode 1) ; Enable 80 character check for LaTeX.
 ;Open .py and .pyw in python-mode
 (setq auto-mode-alist
       (cons '("\\.\\(py\\|pyw\\)$" . python-mode) auto-mode-alist))
