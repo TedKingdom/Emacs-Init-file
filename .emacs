@@ -49,8 +49,9 @@
 ;; start auto-complete section:
 ;;(add-to-list 'load-path "~/.emacs.d/ac/")
 (package-initialize) ;; instead of adding load path (see previous line)
+(require 'exec-path-from-shell) ; Get $PATH from the terminal.
 (when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+      (exec-path-from-shell-initialize))
 (when (not package-archive-contents)
     (package-refresh-contents))  ; Update the list of available packages.
 (require 'ac-math) ;; this package has to be installed beforehand
@@ -143,7 +144,7 @@
 (ac-flyspell-workaround) ; Avoid disabling auto-completion when using
 ; flyspell-mode.
 (setq exec-path (append exec-path
-'("/usr/local/texlive/2016/bin/x86_64-darwin/"))) ; AUCTeX could not find kpsewhich,
+'("/usr/local/texlive/2017/bin/x86_64-darwin/"))) ; AUCTeX could not find kpsewhich,
 ; so I had to give the path. WARNING: with the future TeXLive versions the path will have to change. This
 ; workaround might not be necessary if the "linking" is done properly: for some reason
 ; AUCTeX refused to use kpsewhich located in the system path.
@@ -167,6 +168,8 @@
 (setenv "PATH" (concat "/usr/local/bin/:" (getenv "PATH")))
 (require 'auctex-latexmk)
 (auctex-latexmk-setup)
+(setenv "LANG" "en_US.UTF-8") ; Make LuaTeX recognise locale.
+(setenv "LC_ALL" "en_US.UTF-8")
 ; Disable linum-mode in listed modes:
 (define-globalized-minor-mode my-global-linum-mode linum-mode
   (lambda ()
