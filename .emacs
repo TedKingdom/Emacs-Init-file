@@ -67,6 +67,7 @@
          (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
                  ac-sources))
    )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; LaTeX ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
 (global-auto-complete-mode t)
 (setq ac-disable-faces nil) ; Turns on auto-complete inside of quote marks and comments.
@@ -101,6 +102,21 @@
 ;(setq preview-gs-command "/usr/local/bin/gs") ; populate variable to enable preview of pdftex within Emacs.
 ; Activate RefTeX and make it interact with AUCTeX:
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(add-hook 'LaTeX-mode-hook 'add-my-latex-environments) 
+(defun add-my-latex-environments () ; Make Auctex recognize environments as math:
+  (LaTeX-add-environments
+   '("empheq" LaTeX-env-label)
+   '("dmath" LaTeX-env-label)))
+;; Make syntax highlighting work in Auctex:
+(custom-set-variables 
+ '(font-latex-math-environments (quote  
+     ("display" "displaymath" "equation" "eqnarray" "gather" "multline"  
+      "align" "alignat" "xalignat" "dmath" "empheq"))))
+;; Reftex code to recognize this environment as an equation :
+(setq reftex-label-alist 
+      '(("dmath" ?e nil nil t)
+      ("empheq" ?e nil nil t)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; End LaTeX ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;Open .py and .pyw in python-mode
 (setq auto-mode-alist
       (cons '("\\.\\(py\\|pyw\\)$" . python-mode) auto-mode-alist))
