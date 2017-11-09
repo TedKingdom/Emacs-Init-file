@@ -14,6 +14,9 @@
  '(f90-if-indent 4)
  '(f90-program-indent 4)
  '(f90-type-indent 4)
+ '(font-latex-math-environments
+   (quote
+    ("display" "displaymath" "equation" "eqnarray" "gather" "multline" "align" "alignat" "xalignat" "dmath" "empheq" "flalign")))
  '(fortran-line-number-indent 1)
  '(global-linum-mode t)
  '(ido-enable-flex-matching nil)
@@ -29,7 +32,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (matlab-mode auctex-latexmk exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
+    (cmake-font-lock cmake-mode cmake-project matlab-mode auctex-latexmk exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
  '(preview-gs-command "/usr/local/bin/gs")
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
@@ -109,10 +112,7 @@
    '("flalign" LaTeX-env-label)
    '("dmath" LaTeX-env-label)))
 ;; Make syntax highlighting work in Auctex:
-(custom-set-variables 
- '(font-latex-math-environments (quote  
-     ("display" "displaymath" "equation" "eqnarray" "gather" "multline"  
-      "align" "alignat" "xalignat" "dmath" "empheq" "flalign"))))
+
 ;; Reftex code to recognize this environment as an equation :
 (setq reftex-label-alist 
       '(("dmath" ?e nil nil t)
