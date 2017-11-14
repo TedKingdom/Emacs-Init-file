@@ -189,6 +189,12 @@
 (auctex-latexmk-setup)
 (setenv "LANG" "en_US.UTF-8") ; Make LuaTeX recognise locale.
 (setenv "LC_ALL" "en_US.UTF-8")
+; Add cmake listfile names to the mode list:
+(setq auto-mode-alist
+	  (append
+	   '(("CMakeLists\\.txt\\'" . cmake-mode))
+	   '(("\\.cmake\\'" . cmake-mode))
+	   auto-mode-alist))
 ; Disable linum-mode in listed modes:
 (define-globalized-minor-mode my-global-linum-mode linum-mode
   (lambda ()
