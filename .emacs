@@ -65,6 +65,7 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac/ac-dict")
 (ac-config-default)
 (add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
+(add-to-list 'ac-modes 'cmake-mode)
 (defun ac-LaTeX-mode-setup () ; add ac-sources to default ac-sources
    (setq ac-sources
          (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
