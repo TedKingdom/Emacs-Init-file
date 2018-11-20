@@ -32,7 +32,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (wolfram wolfram-mode jedi auto-complete-rst sphinx-doc sphinx-mode cmake-font-lock cmake-mode cmake-project matlab-mode auctex-latexmk exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
+    (cmake-font-lock cmake-mode cmake-project matlab-mode auctex-latexmk exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
  '(preview-gs-command "/usr/local/bin/gs")
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
@@ -203,11 +203,4 @@
                 (derived-mode-p 'doc-view-mode 'shell-mode))
       (linum-mode 1))))
 (my-global-linum-mode 1)
-; Begin Wolfram section
-(autoload 'wolfram-mode "wolfram-mode" nil t)
-(autoload 'run-wolfram "wolfram-mode" nil t)
-(setq wolfram-program "/Applications/Mathematica.app/Contents/MacOS/MathKernel")
-(add-to-list 'auto-mode-alist '("\\.m$" . wolfram-mode))
-(setq wolfram-path "directory-in-Mathematica-$Path") ;; e.g. on Linux ~/.Mathematica/Applications
-; End Wolfram.
 (toggle-frame-fullscreen) ; Start fullscreen mode.
