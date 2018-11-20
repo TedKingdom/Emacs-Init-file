@@ -203,4 +203,11 @@
                 (derived-mode-p 'doc-view-mode 'shell-mode))
       (linum-mode 1))))
 (my-global-linum-mode 1)
+; Begin Wolfram section
+(autoload 'wolfram-mode "wolfram-mode" nil t)
+(autoload 'run-wolfram "wolfram-mode" nil t)
+(setq wolfram-program "/Applications/Mathematica.app/Contents/MacOS/MathKernel")
+(add-to-list 'auto-mode-alist '("\\.m$" . wolfram-mode))
+(setq wolfram-path "directory-in-Mathematica-$Path") ;; e.g. on Linux ~/.Mathematica/Applications
+; End Wolfram.
 (toggle-frame-fullscreen) ; Start fullscreen mode.
