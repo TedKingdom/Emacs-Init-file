@@ -32,7 +32,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (jedi auto-complete-rst sphinx-doc sphinx-mode cmake-font-lock cmake-mode cmake-project matlab-mode auctex-latexmk exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
+    (wolfram wolfram-mode jedi auto-complete-rst sphinx-doc sphinx-mode cmake-font-lock cmake-mode cmake-project matlab-mode auctex-latexmk exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
  '(preview-gs-command "/usr/local/bin/gs")
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
