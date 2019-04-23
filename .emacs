@@ -143,6 +143,7 @@
  (setq matlab-shell-command "matlab")
 (add-hook 'matlab-mode-hook 'auto-complete-mode) ; Toggle auto-complete mode when entering matlab mode.
 (add-hook 'matlab-mode-hook 'column-enforce-mode 1) ; Enable 80 column rule in Matlab.
+(add-hook 'matlab-mode-hook (lambda () (local-set-key "\M-;" nil))) ; top matlab-mode from overriding the default M-; binding.
 ; CLI matlab from the shell:
 ; /Applications/MATLAB_R2016a.app/bin/matlab -nodesktop
 ; elisp setup for matlab-mode:
