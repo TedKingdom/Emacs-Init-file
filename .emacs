@@ -32,7 +32,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (cmake-font-lock cmake-mode cmake-project matlab-mode auctex-latexmk exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ jedi gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
+    (image-dired+ virtualenv cmake-font-lock cmake-mode cmake-project matlab-mode auctex-latexmk exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
  '(preview-gs-command "/usr/local/bin/gs")
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
@@ -127,7 +127,7 @@
             interpreter-mode-alist))
 (require 'epc)
 (add-to-list 'load-path "/usr/local/bin/virtualenv")
-(add-to-list 'load-path "~/.emacs.d/elpa/jedi-20160425.2156/")
+(add-to-list 'load-path "~/.emacs.d/elpa/jedi-20160426.456/")
 (add-hook 'python-mode-hook 'jedi:setup) ; Setup jedi. Note: it was producing
                                         ; an error untill I downloaded the
                                         ; latest jedi.el (https://github.com/tkf/emacs-jedi)
@@ -203,5 +203,9 @@
     (unless (or (minibufferp)
                 (derived-mode-p 'doc-view-mode 'shell-mode))
       (linum-mode 1))))
+;Toggle the asynchronous image-dired feature
+(eval-after-load 'image-dired+ '(image-diredx-async-mode 1))
+;Toggle the adjusting image in image-dired feature
+(eval-after-load 'image-dired+ '(image-diredx-adjust-mode 1))
 (my-global-linum-mode 1)
 (toggle-frame-fullscreen) ; Start fullscreen mode.
