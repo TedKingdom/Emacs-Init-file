@@ -32,7 +32,7 @@
      ("melpa" . "http://melpa.milkbox.net/packages/"))))
  '(package-selected-packages
    (quote
-    (image-dired+ virtualenv cmake-font-lock cmake-mode cmake-project matlab-mode auctex-latexmk exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
+    (jedi jedi-core jedi-direx python-environment image-dired+ virtualenv cmake-font-lock cmake-mode cmake-project matlab-mode auctex-latexmk exec-path-from-shell markdown-preview-mode dired+ dired-quick-sort ssh markdown-mode+ gh-md flycheck el-get column-enforce-mode auto-complete-auctex auctex ac-math ac-ispell 0blayout)))
  '(preview-gs-command "/usr/local/bin/gs")
  '(python-shell-interpreter "python")
  '(require (quote auto-complete))
@@ -208,4 +208,6 @@
 ;Toggle the adjusting image in image-dired feature
 (eval-after-load 'image-dired+ '(image-diredx-adjust-mode 1))
 (my-global-linum-mode 1)
+(show-paren-mode t) ; Highlight pairs of parentheses, brockets and braces.
+(setq show-paren-style 'expression) ; Highlight text within parentheses, brockets and braces.
 (toggle-frame-fullscreen) ; Start fullscreen mode.
